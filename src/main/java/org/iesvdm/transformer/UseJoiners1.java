@@ -2,9 +2,8 @@ package org.iesvdm.transformer;
 
 import java.util.Scanner;
 
-class UseJoiners1
+public class UseJoiners1
 {
-
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
