@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 public class Joiners
 {
-    public static <T> LispList<T> zipLists(Joiner<T> joiner,LispList<T> ls1,LispList<T> ls2)
-    {
+    public static <T> LispList<T> zipLists(Joiner<T> joiner,LispList<T> ls1,LispList<T> ls2) {
         if(ls1.isEmpty()||ls2.isEmpty())
             return LispList.empty();
         else
@@ -36,4 +35,13 @@ public class Joiners
         return result;
     }
 
+    public static <T> T fold(Joiner<T> joiner,ArrayList<T> list){
+        ArrayList<T> copy = new ArrayList<>(list);
+        T result = copy.getFirst();
+        copy.remove(0);
+        for(T t : copy){
+            result=joiner.join(result,t);
+        }
+        return result;
+    }
 }
