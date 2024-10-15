@@ -30,6 +30,7 @@ public class MainPruebaZipArrayList {
         System.out.println("----------------------");
     }
 
+    //Metodo para pasar una cadena a una lista de Integers
     private static ArrayList<Integer> parseIntArrayList(String str) {
         String line = str.trim();
         String[] nums = line.split(",");

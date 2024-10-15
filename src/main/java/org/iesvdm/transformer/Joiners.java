@@ -35,10 +35,16 @@ public class Joiners
         return result;
     }
 
+    //Metodo que devuelve un solo resultado dependiendo de el tipo que sea T
     public static <T> T fold(Joiner<T> joiner,ArrayList<T> list){
+        //creamos una copia para no actuar sobre la lista original
         ArrayList<T> copy = new ArrayList<>(list);
+        /*Instanciamos el primer valor de la lista en un T pues si lo iniciamos como "null"
+        nos va a dar problemas al usar el .join en el bucle. Por ejemplo null+1 o null+"Hola" da error*/
         T result = copy.getFirst();
+        //Eliminamos el primer valor pues sino se suma 2 veces con el T result
         copy.remove(0);
+        //Recorremos la lista copy y vamos sumando e instanciando los valores entre si
         for(T t : copy){
             result=joiner.join(result,t);
         }
